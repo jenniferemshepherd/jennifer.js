@@ -13,14 +13,18 @@
 <body>
 <form id=noteForm>
   <label for="note"></label>
-  <textarea name="noteBox">
+  <textarea id="noteBox">
 </textarea>
 <br />
-  <input type="submit" id="noteSubmit" value="add note" />
+  <button type="button" id="noteSubmit">Add note</button>
 </form>
   <script src="src/interface.js"></script>
   <script src="src/note.js"></script>
   <script src="spec/specHelper.js"></script>
   <script src="spec/noteSpec.js"></script>
+
+<!-- feature tests - should be commented out unless running the test itself! -->
+<script src="spec/features/createNoteSpec.js"></script>
+
 </body>
 </html>

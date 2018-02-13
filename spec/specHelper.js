@@ -21,7 +21,7 @@ var expect = {
 var it = function(testName, test) {
   if (test()) {
     console.log('%c' + testName + ': PASSED', 'color: green')
-  } else {
-    console.log('%c' + testName + ': FAILED', 'color: red')
+  }  else {
+     throw new Error (testName + ': FAILED')
   }
 }
