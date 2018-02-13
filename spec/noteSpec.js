@@ -7,7 +7,7 @@
     });
 
     it("Note should have body text passed in as argument", function() {
-      return expect.isTrue(note.body === "smello")
+      return expect.isTrue(note.body === "hello")
     });
 
     it("Note should have body text passed in as argument", function() {
