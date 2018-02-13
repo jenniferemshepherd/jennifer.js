@@ -4,13 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="index_stylesheet.css" type="text/css" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="resources/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
   <title>EDJE notes</title>
 </head>
 <body>
-  Hello world
+<form id=noteForm>
+  <label for="note"></label>
+  <textarea name="noteBox">
+</textarea>
+<br />
+  <input type="submit" id="noteSubmit" value="add note" />
+</form>
   <script src="src/interface.js"></script>
   <script src="src/note.js"></script>
   <script src="spec/specHelper.js"></script>
