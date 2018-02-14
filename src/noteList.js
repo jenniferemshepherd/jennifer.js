@@ -7,7 +7,7 @@ function NoteList() {
 NoteList.prototype = {
 
   addNote: function(note) {
-    this.note.push(note)
+    this.notes.push(note)
   },
 
   getNotes: function() {
