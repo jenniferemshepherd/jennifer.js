@@ -14,6 +14,14 @@ var expect = {
 
   toInclude: function(container, item) {
     return container.includes(item)
+  },
+
+  isArray: function(object) {
+    return object instanceof Array
+  },
+
+  isEmptyArray: function(object) {
+    return object instanceof Array && object.length === 0
   }
 
 }
