@@ -11,13 +11,16 @@
   <title>EDJE notes</title>
 </head>
 <body>
-<form id=noteForm>
-  <label for="note"></label>
-  <textarea id="newNoteBox">
-</textarea>
-<br />
-  <button type="button" id="noteSubmit">Add note</button>
-</form>
+
+  <div id="newNoteArea">
+    <form id=noteForm>
+      <label for="note"></label>
+      <textarea id="newNoteBox">
+      </textarea>
+      <br />
+      <button type="button" id="noteSubmit">Add note</button>
+    </form>
+  </div>
 
 <div id="noteDisplayArea">
   <textarea id="noteDisplayBox">
@@ -25,14 +28,17 @@
 </div>
   <script src="src/interface.js"></script>
   <script src="src/note.js"></script>
+  <script src="src/noteList.js"></script>
   <script src="spec/specHelper.js"></script>
-  <!-- <script src="spec/noteSpec.js"></script> -->
+  <script src="spec/noteSpec.js"></script>
+  <script src="spec/noteListSpec.js"></script>
 
 
 
 <!-- feature tests - should be commented out unless running the test itself! -->
-<!-- <script src="spec/features/createNoteSpec.js"></script> -->
-<!-- <script src="spec/features/viewNoteSpec.js"></script> -->
+  <!-- <script src="spec/features/createNoteSpec.js"></script> -->
+  <!-- <script src="spec/features/viewNoteSpec.js"></script> -->
+
 
 </body>
 </html>
