@@ -8,7 +8,7 @@ document.getElementById('noteSubmit').onclick = function() {
 
 // functions which can be called
 function loadNote(note) {
-  document.getElementById('noteDisplayBox').innerHTML = note.body
+  document.getElementById('noteDisplayBox').innerHTML = note.getBody()
 }
 
 function addNote(body = document.getElementById('newNoteBox').value) {
@@ -29,5 +29,5 @@ function loadNoteList() {
   output += "</ul>"
 
   document.getElementById('noteListDisplayArea').innerHTML = output
-  
+
 }
