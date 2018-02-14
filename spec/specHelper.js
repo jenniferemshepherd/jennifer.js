@@ -22,6 +22,10 @@ var expect = {
 
   isEmptyArray: function(object) {
     return object instanceof Array && object.length === 0
+  },
+
+  toIncludeString: function(stringToFind, string) {
+    return string.search(stringToFind) > 0
   }
 
 }
