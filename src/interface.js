@@ -1,8 +1,6 @@
 // stuff that runs immediately on page load
 noteList = new NoteList()
 
-loadNoteList()
-
 // stuff that listens for events
 document.getElementById('noteSubmit').onclick = function() {
   addNote()
