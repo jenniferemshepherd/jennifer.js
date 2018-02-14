@@ -25,7 +25,7 @@ var expect = {
   },
 
   toIncludeString: function(stringToFind, string) {
-    return string.search(stringToFind) > 0
+    return string.search(stringToFind) > -1
   }
 
 }
