@@ -1,31 +1,48 @@
-var expect = {
-
-  isTrue: function(expectation) {
-    return expectation
-  },
-
-  isFalse: function(expectation) {
-    return !expectation
-  },
-
-  areEqual: function(object1, object2) {
-    return object1 === object2
-  },
-
-  toInclude: function(container, item) {
-    return container.includes(item)
-  },
-
-  isArray: function(object) {
-    return object instanceof Array
-  },
-
-  isEmptyArray: function(object) {
-    return object instanceof Array && object.length === 0
-  },
-
-  toIncludeString: function(stringToFind, string) {
-    return string.search(stringToFind) > -1
+(function(exports) {
+  
+  var Jennifer = function() { 
+    this.subject;
   }
+  
+    Jennifer.prototype= {
+      expect: function(subject) {
+        this.subject =  subject;
+        return this;
+      },
+  
+      toBeTrue: function() {
+        return !!this.subject
+      },
+  
+      toBeFalse: function() {
+        return !this.subject
+      },
+  
+      toEqual: function(objectToCompare) {
+        return this.subject === objectToCompare
+      },
+  
+      toInclude: function(item) {
+        return this.subject.includes(item)
+      },
+  
+      toIncludeString: function(stringToFind) {
+        return this.subject.search(stringToFind) > -1
+      },
+  
+      // these matchers are used without expect. supply the subject directly
+  
+      isArray: function(subject) {
+        return this.subject instanceof Array
+      },
+  
+      isEmptyArray: function(subject) {
+        return this.subject instanceof Array && this.subject.length === 0
+      },
+  
+    }
 
-}
+    exports.jennifer = new Jennifer();
+  
+  })(this);
+  
