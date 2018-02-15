@@ -1,29 +1,21 @@
 (function testNoteStorage() {
 
-  noteList = new NoteList()
-
-  jennifer.it("should create a NoteList with an empty array of notes", function() {
-   return jennifer.expect(noteList.notes).isEmptyArray()
+  it("should create a NoteList with an empty array of notes", function() {
+    jennifer.expect.isEmptyArray(noteList.notes)
   });
 
-  noteList = new NoteList() //isolates tests
-
-  jennifer.it("can add a note to NoteList", function() {
-    var mockNote = {
-      body: "I am note"
-    }
+  it("can add a note to NoteList", function() {
+    var mockNote = {}
     noteList.addNote(mockNote)
-    return jennifer.expect(noteList.getNotes()).toInclude(mockNote)
-  });
+    jennifer.expect.toInclude(noteList.notes, mockNote)
+   });
 
-  noteList = new NoteList()
-
-  jennifer.it("can return notes", function() {
+  it("can return notes", function() {
     var mockNote1 = {}
     var mockNote2 = {}
     noteList.addNote(mockNote1)
     noteList.addNote(mockNote2)
-    return jennifer.expect(noteList.getNotes()).toInclude(mockNote2)
+    jennifer.expect(noteList.getNotes()).toInclude(mockNote2)
   });
 
 })();

@@ -1,4 +1,3 @@
-
 (function(exports) {
   
   var Jennifer = function() { 
@@ -6,15 +5,6 @@
   }
   
     Jennifer.prototype= {
-  
-      it: function(testName, test) {
-        if (test()) {
-          console.log('%c' + testName + ': PASSED', 'color: green')
-        }  else {
-           throw new Error (testName + ': FAILED')
-        }
-      },
-  
       expect: function(subject) {
         this.subject =  subject;
         return this;
