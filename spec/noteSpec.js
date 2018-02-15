@@ -2,7 +2,7 @@
 
   note = new Note("hello")
 
- it("Note should have body text passed in as argument", function() {
+ it("should have body text passed in as argument to Note", function() {
    return expect.areEqual(note.body, "hello")
   });
 
