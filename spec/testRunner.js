@@ -27,5 +27,3 @@ function it(testName, testFunction) {
 };
 
 var testRunner = new TestRunner();
-
-// testRunner.runTests();
