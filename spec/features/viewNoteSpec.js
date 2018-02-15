@@ -1,9 +1,10 @@
 (function testNoteCreationWithInterface() {
 
- it("should display a note on the screen", function() {
-   loadNote(new Note("I am the Edge"))
+ jennifer.it("should display a note on the screen", function() {
+   addNote("I am the Edge")
+   loadNote(0)
    var content = document.getElementById('noteDisplayBox').value
-   return expect.areEqual(content, "I am the Edge")
+   return jennifer.expect(content).toEqual("I am the Edge")
   });
 
 })();

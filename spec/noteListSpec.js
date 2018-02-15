@@ -2,28 +2,28 @@
 
   noteList = new NoteList()
 
- it("should create a NoteList with an empty array of notes", function() {
-   return expect.isEmptyArray(noteList.notes)
+  jennifer.it("should create a NoteList with an empty array of notes", function() {
+   return jennifer.expect(noteList.notes).isEmptyArray()
   });
 
   noteList = new NoteList() //isolates tests
 
-  it("can add a note to NoteList", function() {
-    var mockNote = {}
+  jennifer.it("can add a note to NoteList", function() {
+    var mockNote = {
+      body: "I am note"
+    }
     noteList.addNote(mockNote)
-    return expect.toInclude(noteList.notes, mockNote)
-   });
+    return jennifer.expect(noteList.getNotes()).toInclude(mockNote)
+  });
 
-   noteList = new NoteList()
+  noteList = new NoteList()
 
-   it("can return notes", function() {
-     var mockNote1 = {}
-     var mockNote2 = {}
-     noteList.addNote(mockNote1)
-     noteList.addNote(mockNote2)
-     return expect.toInclude(noteList.getNotes(), mockNote2)
-    });
-
-
+  jennifer.it("can return notes", function() {
+    var mockNote1 = {}
+    var mockNote2 = {}
+    noteList.addNote(mockNote1)
+    noteList.addNote(mockNote2)
+    return jennifer.expect(noteList.getNotes()).toInclude(mockNote2)
+  });
 
 })();
