@@ -44,16 +44,18 @@
   <script src="spec/jennifer.js"></script>
 
   <!-- unit tests - should be commented out unless running the test itself! -->
-  <!-- <script src="spec/noteSpec.js"></script> -->
-  <!-- <script src="spec/noteListSpec.js"></script> -->
+  <script src="spec/noteSpec.js"></script>
+  <script src="spec/noteListSpec.js"></script>
 
   <!-- feature tests - should be commented out unless running the test itself! -->
-  <!-- <script src="spec/features/createNoteSpec.js"></script> -->
-  <!-- <script src="spec/features/viewNoteSpec.js"></script> -->
-  <!-- <script src="spec/features/viewNoteListSpec.js"></script> -->
-  <!-- <script src="spec/features/clickableNoteListSpec.js"></script> -->
+  <script src="spec/features/createNoteSpec.js"></script>
+  <script src="spec/features/viewNoteSpec.js"></script>
+  <script src="spec/features/viewNoteListSpec.js"></script>
+  <script src="spec/features/clickableNoteListSpec.js"></script>
 
-<script> jennifer.runTests(); </script>
+<script> jennifer.runTests(
+  function(){noteList = new NoteList()}
+); </script>
 
 </body>
 
