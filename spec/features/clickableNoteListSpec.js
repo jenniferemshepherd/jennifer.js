@@ -5,7 +5,7 @@
     document.getElementById('noteSubmit').click()
     document.getElementById('note0').click()
     var content = document.getElementById('noteDisplayBox').value
-    jennifer.expect(content).toEqual("This is a test note designed to be longer than 20 characters")
+    jennifer.expects(content).toEqual("This is a test note designed to be longer than 20 characters")
   });
 
 })();

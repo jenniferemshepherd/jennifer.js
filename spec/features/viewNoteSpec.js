@@ -4,7 +4,7 @@
     addNote("I am the Edge")
     loadNote(0)
     var content = document.getElementById('noteDisplayBox').value
-    jennifer.expect(content).toEqual("I am the Edge")
+    jennifer.expects(content).toEqual("I am the Edge")
   });
 
 })();

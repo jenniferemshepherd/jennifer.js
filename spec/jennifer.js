@@ -24,7 +24,7 @@
       throw new Error(errorMessage)
     },
 
-    expect: function(subject) {
+    expects: function(subject) {
       this.subject =  subject;
       return this;
     },
@@ -77,12 +77,12 @@
 
     // these matchers are used without expect. supply the subject directly
 
-    isArray: function(subject) {
+    toBeArray: function(subject) {
       var errorMessage = `Expected ${this.subject} to be an array.`
       this.assert(this.subject instanceof Array, errorMessage)
     },
 
-    isEmptyArray: function(subject) {
+    toBeEmptyArray: function(subject) {
       var errorMessage = `Expected ${this.subject} to be an empty array.`
       this.assert((this.subject instanceof Array && this.subject.length === 0), errorMessage)
     },
