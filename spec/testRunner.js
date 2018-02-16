@@ -1,5 +1,6 @@
 function TestRunner() {
   this.tests = {};
+  this.executedTests = [];
 };
 
   TestRunner.prototype.addTest = function(testName, testFunction) {
