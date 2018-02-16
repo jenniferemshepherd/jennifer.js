@@ -1,17 +1,11 @@
-// stuff that runs immediately on page load
+
 noteList = new NoteList()
 
-// stuff that listens for events
 document.getElementById('noteSubmit').onclick = function () {
   addNote()
   document.getElementById('newNoteBox').value = ""
 }
 
-document.getElementsByClassName('noteListItems').onclick = function () {
-
-}
-
-// functions which can be called
 function loadNote(index) {
   document.getElementById('noteDisplayBox').innerHTML = noteList.getNotes()[index].getBody()
 }
@@ -23,7 +17,6 @@ function addNote(body = document.getElementById('newNoteBox').value) {
 }
 
 function loadNoteList() {
-
   var output = "<ul id='noteList'>"
 
   if (noteList.getNotes().length > 0) {
@@ -34,5 +27,4 @@ function loadNoteList() {
   output += "</ul>"
 
   document.getElementById('noteListDisplayArea').innerHTML = output
-
 }
