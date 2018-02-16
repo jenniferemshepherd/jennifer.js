@@ -6,95 +6,92 @@
     this.executedTests = [];
   }
 
-    Jennifer.prototype= {
+  Jennifer.prototype= {
 
-      assert: function(assertion, errorMessage) {
-        var testObject = {name: testName}
-        try {
-          assertion ? testObject.result = "Passed" : throw new Error(errorMessage)
-        } catch (e) {
-          testObject.result = "Failed"
-          testObject.error = e
-        } finally {
-          this.executedTests.push(testObject)
+    assert: function(assertion, errorMessage) {
+      var testObject = {}
+      try {
+        assertion ? testObject.result = "Passed" : this.throwError(errorMessage)
+      } catch (e) {
+        testObject.result = "Failed"
+        testObject.error = e
+      } finally {
+        this.executedTests.push(testObject)
+      }
+    },
+
+    throwError: function(errorMessage) {
+      throw new Error(errorMessage)
+    },
+
+    expect: function(subject) {
+      this.subject =  subject;
+      return this;
+    },
+
+    runTests: function() {
+      this.tests.forEach(test => {
+        test.test()
+        this.executedTests[this.executedTests.length - 1].name = test.name
+      })
+      this.printTests()
+    },
+
+    printTests: function() {
+      this.executedTests.forEach(test => {
+        if (test.error) {
+          console.log(`%c${test.name}: ${test.result}`, `color: red`);
+          console.log(test.error.message);
+          console.log(test.error.stack);
+        } else {
+          console.log(`%c${test.name}: ${test.result}`, `color: green`)
         }
-      },
+      })
+    },
 
-      expect: function(subject) {
-        this.subject =  subject;
-        return this;
-      },
+    toBeTrue: function() {
+      var errorMessage = `Expected ${this.subject} to be true.`
+      this.assert(Boolean(this.subject), errorMessage)
+    },
 
-      runTests: function() {
-        // Object.keys(this.tests).forEach ((testName) => {
-        //   testFunction = this.tests[testName]
-        //   noteList = new NoteList(); // before
-        //   this.printTest(testName,testFunction);
-        // });
+    toBeFalse: function() {
+      var errorMessage = `Expected ${this.subject} to be false.`
+      this.assert(!this.subject , errorMessage)
+    },
 
-        this.tests.forEach(test => {
-          test.test()
-          this.executedTests[this.executedTests.length - 1].name = test.name
-        })
+    toEqual: function(objectToCompare) {
+      var errorMessage = `Expected ${this.subject} to equal ${objectToCompare}.`
+      this.assert(this.subject === objectToCompare, errorMessage)
+    },
 
-        this.printTests()
-      },
+    toInclude: function(item) {
+      var errorMessage = `Expected ${this.subject} to include ${item}.`
+      this.assert(this.subject.includes(item), errorMessage)
+    },
 
-      printTests: function() {
-        this.executedTests.forEach(test => {
-          console.log(`${test.name}: ${test.result}`);
-          if (test.error) {
-            console.log(test.error.message);
-            console.log(test.error.stack);
-          }
-        })
-      },
+    toIncludeString: function(stringToFind) {
+      var errorMessage = `Expected ${this.subject} to contain string '${stringToFind}'.`
+      this.assert(this.subject.search(stringToFind) > -1, errorMessage)
+    },
 
-      toBeTrue: function() {
-        var errorMessage = `Expected ${this.subject} to be true.`
-        assert(Boolean(this.subject), errorMessage)
-      },
+    // these matchers are used without expect. supply the subject directly
 
-      toBeFalse: function() {
-        var errorMessage = `Expected ${this.subject} to be false.`
-        assert(!this.subject , errorMessage)
-      },
+    isArray: function(subject) {
+      var errorMessage = `Expected ${this.subject} to be an array.`
+      this.assert(this.subject instanceof Array, errorMessage)
+    },
 
-      toEqual: function(objectToCompare) {
-        var errorMessage = `Expected ${this.subject} to equal ${objectToCompare}.`
-        assert(this.subject === objectToCompare, errorMessage)
-      },
+    isEmptyArray: function(subject) {
+      var errorMessage = `Expected ${this.subject} to be an empty array.`
+      this.assert((this.subject instanceof Array && this.subject.length === 0), errorMessage)
+    },
 
-      toInclude: function(item) {
-        var errorMessage = `Expected ${this.subject} to include ${item}.`
-        assert(this.subject.includes(item), errorMessage)
-      },
+  }
 
-      toIncludeString: function(stringToFind) {
-        var errorMessage = `Expected ${this.subject} to contain string '${stringToFind}'.`
-        assert(this.subject.search(stringToFind) > -1, errorMessage)
-      },
-
-      // these matchers are used without expect. supply the subject directly
-
-      isArray: function(subject) {
-        var errorMessage = `Expected ${this.subject} to be an array.`
-        assert(this.subject instanceof Array, errorMessage)
-      },
-
-      isEmptyArray: function(subject) {
-        var errorMessage = `Expected ${this.subject} to be an empty array.`
-        assert((this.subject instanceof Array && this.subject.length === 0), errorMessage)
-      },
-
-    }
-
-    function addTest(testName, testFunction) {
-      jennifer.tests.push({name: testName, test: testFunction});
-    }
-
-    exports.jennifer = new Jennifer();
-
-    exports.addTest = it;
+  exports.jennifer = new Jennifer();
 
   })(this);
+
+  function it(testName, testFunction) {
+    jennifer.tests.push({name: testName, test: testFunction});
+  }
